@@ -1,0 +1,13 @@
+indicator_family,role,frequency_candidate,suggested_sources,country_scope,availability_issue,status
+equity_price_returns,core,monthly_from_daily,Market exchange archives or audited vendor,local,Trade date and market closure,source_selection_pending
+equity_realized_volatility,core,monthly_from_daily,Audited exchange or vendor,local,Calculation uses past returns only,source_selection_pending
+foreign_exchange_changes,core,monthly,Central bank or OECD,local,FX convention and euro-area definition,source_selection_pending
+short_government_yield,core,monthly,Central bank or OECD,local,Maturity and daily-to-monthly aggregation,source_selection_pending
+yield_curve_slope,core_if_available,monthly,Central bank or OECD,local,Comparable long and short maturities,source_selection_pending
+credit_spread,optional,monthly,Central bank or IMF,local,Historical country coverage may differ,source_selection_pending
+m1,macro_extension,monthly,Central bank or OECD,local,Publication date and methodology revisions,source_selection_pending
+m2,macro_extension,monthly,Central bank or OECD,local,Monetary definitions differ by country,source_selection_pending
+reserve_assets,macro_extension,monthly,Central bank or IMF,local,Reporting lags and valuation effects,source_selection_pending
+gold_price,global_control,monthly_from_daily,Audited commodity market source,global_shared,Not the same variable as official gold reserves,source_selection_pending
+oil_price,global_control,monthly_from_daily,Audited commodity market source,global_shared,Global price shock is not country-specific,source_selection_pending
+implied_equity_volatility,optional,monthly_from_daily,Index provider or exchange,local_if_available,Inconsistent historical country coverage,source_selection_pending

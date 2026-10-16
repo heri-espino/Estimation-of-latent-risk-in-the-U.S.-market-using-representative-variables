@@ -1,0 +1,152 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\title{When Do Smoothed Financial Risk Indicators Fail to Forecast?\\
+A Cross-Country Study of Financial Disturbances}
+\author{Working draft --- authorship to be confirmed}
+\date{16 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We propose a comparative study of the historical reliability of forecasts
+based on smoothed latent financial-risk indicators. Country-specific financial
+factors would be extracted from observable market and macro-financial series,
+and their trend forecasts estimated using likelihood-based smoothing in a
+Gaussian state-space model. We distinguish full-sample retrospective
+reconstruction from pseudo-real-time forecasting experiments. The proposed
+evaluation compares crisis and non-crisis periods across several markets
+using matched forecast origins, conventional benchmarks, and calibration
+measures. The study will test whether departures from smoothed-trend
+forecasts contain evidence about financial disturbances beyond ordinary
+forecast uncertainty. This document is a research design; empirical results
+have not yet been computed.
+\end{abstract}
+
+\section{Introduction}
+Financial markets experience episodes of rapid adjustment in which
+historically persistent movements may cease to forecast future behavior.
+Penalized trend estimation offers a compact description of the persistent
+component of a series, but extrapolation can be vulnerable to abrupt changes.
+This study asks when the forecasts of trends extracted from financial
+risk indicators cease to be reliable.
+
+The contribution sought here is empirical: systematic and comparable
+evidence about forecast reliability across economies and episodes, not a
+new numerical optimization algorithm or a new theory of smoothing.
+The country-specific index construction and the historical evaluation
+should be clearly distinguished.
+
+\section{Model and definitions}
+\subsection{Country-specific financial factor}
+For country $c$, let $X_{c,t}$ denote a vector of financial indicators.
+We consider a dynamic-factor representation
+\begin{equation}
+X_{c,t}=\Lambda_c f_{c,t}+u_{c,t},
+\end{equation}
+where $f_{c,t}$ is a latent factor. Its sign, scaling, transition dynamics,
+and idiosyncratic components must be identified using a declared convention.
+A factor estimate is a model-derived target, not an observed value of risk.
+
+\subsection{Likelihood-based smoothing}
+For an estimated factor series $f_t$, consider
+\begin{align}
+ f_t &= \tau_t+\varepsilon_t,
+       &\varepsilon_t&\sim N(0,r),\\
+ \Delta^d\tau_t&=\eta_t,
+       &\eta_t&\sim N(0,q).
+\end{align}
+Conditional on compatible diffuse initial conditions, the associated
+penalized trend problem is
+\begin{equation}
+\widehat{\tau}_\lambda
+=\arg\min_{\tau}
+\left\{\|f-\tau\|_2^2+
+\lambda\|D_d\tau\|_2^2\right\},
+\qquad \lambda=\frac{r}{q}.
+\end{equation}
+The variance parameters $q$ and $r$ will be estimated by maximizing the
+\emph{marginal} likelihood, computed using a Kalman filter.
+We focus initially on $d=2$. A generic local-linear-trend model
+with an additional level shock is a different specification and must
+not be described as algebraically identical without restrictions.
+
+\subsection{Forecast errors}
+For forecast origin $t$ and horizon $h$, let
+$\widehat f_{c,t+h\mid t}$ be the factor forecast implied by the fitted
+trend. Define the forecast error relative to a specified factor target:
+\begin{equation}
+e_{c,t,h} =
+f^{\mathrm{target}}_{c,t+h\mid t}
+- \widehat f_{c,t+h\mid t},
+\qquad
+z_{c,t,h}=\frac{e_{c,t,h}}{\widehat\sigma_{c,t,h}}.
+\end{equation}
+A large $z_{c,t,h}$ can reflect non-Gaussian shocks, volatility shifts,
+measurement instability, or structural breaks. It is not itself proof
+of a structural break or early warning.
+
+\section{Experimental design}
+\subsection{Retrospective and pseudo-real-time analysis}
+A retrospective DFM may use the entire sample for description, but the
+resulting history cannot justify real-time performance claims.
+The primary forecasting analysis will instead refit the DFM,
+transformations, factor identification, smoothing parameters,
+and interval calibration using data available by each origin $t$.
+The later target will be a filtered estimate under a fixed vintage
+measurement model, not the factor smoothed with all future observations.
+The target definition and factor uncertainty will be documented.
+
+\subsection{Countries and events}
+The initial proposed panel contains Mexico, the United States,
+the United Kingdom, Japan, and an explicitly defined euro-area aggregate.
+Candidate historical episodes include the global financial crisis,
+the COVID-19 shock, and later monetary or banking disturbances.
+The Mexican 1994--1995 crisis requires a separate long-horizon dataset,
+as several modern financial-market proxies lack coverage that far back.
+Event windows will be defined before evaluating forecast errors.
+
+\subsection{Benchmarks and evaluation}
+Compare likelihood-calibrated smoothing with fixed-smoothness
+extrapolation, forecast-based validation, a random walk, an autoregression,
+and the DFM transition forecast on matched origins and horizons.
+Report RMSE, MAE, interval coverage, standardized exceedance frequencies,
+and false-alarm behavior in non-crisis periods.
+Allow dependence across adjacent origins and cross-country common shocks
+when estimating uncertainty.
+
+\section{Interpretation and limitations}
+The interpretation of a country factor depends on the indicator
+definition, frequency, loadings and orientation. Gold reserves differ
+from market gold prices. Monetary aggregates and reserves often have
+publication lags that must be respected. Gaussian MLE does not make
+Gaussian forecast tails automatically valid, particularly if the DFM
+displays serial dependence or heteroskedasticity.
+
+\section{Results}
+\emph{Not yet available. No international panel has been assembled or
+forecast experiment executed for this working paper.}
+
+\section{Conclusion}
+\emph{To be written after empirical validation.}
+
+\begin{thebibliography}{9}
+\bibitem{guerrero2007}
+V.~M. Guerrero (2007).
+Time series smoothing by penalized least squares.
+\emph{Statistics \& Probability Letters}, 77(12), 1225--1234.
+
+\bibitem{stockwatson2011}
+J.~H. Stock and M.~W. Watson (2011).
+Dynamic factor models.
+In \emph{Oxford Handbook of Economic Forecasting}.
+
+\bibitem{durbin2012}
+J. Durbin and S.~J. Koopman (2012).
+\emph{Time Series Analysis by State Space Methods},
+second edition. Oxford University Press.
+\end{thebibliography}
+\end{document}
