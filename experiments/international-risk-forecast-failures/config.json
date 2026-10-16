@@ -57,5 +57,25 @@
     "interval_coverage",
     "standardized_exceedances"
   ],
-  "publication_result_claims_allowed": false
+  "publication_result_claims_allowed": false,
+  "index_model_benchmark": {
+    "status": "proposed_not_executed",
+    "primary_candidates": [
+      "imf_style_equal_weight",
+      "pca_one_factor",
+      "dfm_gaussian"
+    ],
+    "conditional_extensions": [
+      "robust_factor",
+      "regime_switching_factor",
+      "multi_factor"
+    ],
+    "comparison_requirement": "same_observable_country_panel_and_available_date_by_origin",
+    "factors_are_not_directly_comparable_rmse_targets": true,
+    "primary_common_external_target": "to_be_prespecified_before_confirmatory_runs",
+    "preprocess_transformations": "to_be_documented_per_variable_before_model_fit",
+    "anchor_direction": "positive_means_financial_stress",
+    "factor_training": "fit_on_available_vintage_only",
+    "original_dfm_as_benchmark_only": true
+  }
 }

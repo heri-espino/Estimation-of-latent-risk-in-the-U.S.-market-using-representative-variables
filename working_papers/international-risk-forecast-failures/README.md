@@ -15,6 +15,7 @@ This is an **application and failure-analysis paper**, not a new article about t
 
 - [manuscript/main.tex](manuscript/main.tex) — compilable, results-free initial article draft.
 - [research_protocol.md](research_protocol.md) — estimand, competing experiments, MLE method, controls, failure definitions, and preregistration decisions.
+- [index_models.md](index_models.md) — prespecified PCA, IMF-style composite, DFM and conditional robust/regime-switching candidates.
 - [data_catalog.csv](data_catalog.csv) — candidate data families; sources and releases still require auditing.
 - [../../experiments/international-risk-forecast-failures/README.md](../../experiments/international-risk-forecast-failures/README.md) — new, isolated experiment pipeline and input audit.
 - [../../experiments/international-risk-forecast-failures/config.json](../../experiments/international-risk-forecast-failures/config.json) — prospective pilot configuration, **not executed**.
